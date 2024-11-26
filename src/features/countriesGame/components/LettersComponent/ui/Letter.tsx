@@ -1,7 +1,9 @@
+import { LetterLayout } from '@/components/LetterLayout/LetterLayout';
+
 export const Letter = ({ letter }: { letter: string }) => {
   return (
-    <div className="bg-slate-600 shadow-md h-40 w-40">
+    <LetterLayout classNames="bg-blue-600 shadow-lg shadow-blue-700/50">
       {letter.toUpperCase()}
-    </div>
+    </LetterLayout>
   );
 };

@@ -1,28 +1,32 @@
+'use client';
+
+import { useCountryStore } from '../../stores/countryStore';
 import { LetterController } from './ui';
 
 export const GuessedLettersComponent = () => {
-  const unitedKingdom = [
-    'u',
-    'n',
-    'i',
-    't',
-    'e',
-    'd',
-    ' ',
-    'k',
-    'i',
-    'n',
-    'g',
-    'd',
-    'o',
-    'm',
-  ];
+  const { countryName } = useCountryStore();
+  const ar = countryName.split(' ');
 
   return (
-    <div className="flex flex-row gap-2">
-      {unitedKingdom.map((letter) => (
-        <LetterController key={letter} letter={letter} isGuessed={true} />
-      ))}
+    <div className="flex flex-col gap-2">
+      {ar.map((countryString, idx) => {
+        return (
+          <div
+            key={idx}
+            className="flex justify-center items-center gap-4 max-w-[90vw]"
+          >
+            {countryString.split('').map((letter, letterIdx) => {
+              return (
+                <LetterController
+                  key={letterIdx}
+                  letter={letter}
+                  isGuessed={false}
+                />
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { LettersBlock } from '@/features/countriesGame/components/LettersCompone
 
 const CountriesGame = () => {
   return (
-    <section>
+    <section className="flex flex-col items-center justify-between w-screen h-screen">
       <CountryPageHeader />
       <GuessedLettersComponent />
       <LettersBlock />

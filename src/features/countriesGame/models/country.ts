@@ -1,4 +1,3 @@
-// models/Country.js
 import mongoose from 'mongoose';
 
 const CountrySchema = new mongoose.Schema({
