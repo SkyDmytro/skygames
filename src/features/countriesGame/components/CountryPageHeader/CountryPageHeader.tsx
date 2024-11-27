@@ -13,7 +13,7 @@ export const CountryPageHeader = () => {
         <span className="text-2xl font-bold">Guess the Country</span>
       </div>
 
-      <div className="flex">
+      <div className="sm:hidden md:flex">
         {[...Array(5)].map((_, i) => (
           <Heart
             key={i}
@@ -21,6 +21,13 @@ export const CountryPageHeader = () => {
             fill={i < health ? 'currentColor' : 'none'}
           />
         ))}
+      </div>
+      <div className=" sm:flex md:hidden text-md text-blue-400 items-center ">
+        {health}
+        <Heart
+          className={`w-8 h-8 mx-1 text-red-500`}
+          fill="currentColor"
+        />{' '}
       </div>
     </header>
   );

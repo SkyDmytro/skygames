@@ -13,7 +13,7 @@ export type CountryStore = CountryState & CountryActions;
 
 export const defaultInitState: CountryState = {
   countryName: 'Netherlands',
-  guessedLetters: [],
+  guessedLetters: ['n', 'e', 't', 's', 'a', 'b'],
 };
 
 export const useCountryStore = create<CountryState & CountryActions>((set) => ({
