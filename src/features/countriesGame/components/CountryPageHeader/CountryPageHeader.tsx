@@ -2,7 +2,10 @@
 
 import { useScoreStore } from '@/features/countriesGame/stores/scoreStore';
 
-import { Globe, Heart } from 'lucide-react';
+import { Globe } from 'lucide-react';
+
+import { DesktopHealth } from './ui/DesktopHealth';
+import { MobileHealth } from './ui/MobileHealth';
 
 export const CountryPageHeader = () => {
   const { health } = useScoreStore();
@@ -12,22 +15,11 @@ export const CountryPageHeader = () => {
         <Globe className="w-8 h-8 mr-2 text-blue-400" />
         <span className="text-2xl font-bold">Guess the Country</span>
       </div>
-
-      <div className="sm:hidden md:flex">
-        {[...Array(5)].map((_, i) => (
-          <Heart
-            key={i}
-            className={`w-8 h-8 mx-1 ${i < health ? 'text-red-500' : 'text-gray-600'}`}
-            fill={i < health ? 'currentColor' : 'none'}
-          />
-        ))}
-      </div>
       <div className=" sm:flex md:hidden text-md text-blue-400 items-center ">
-        {health}
-        <Heart
-          className={`w-8 h-8 mx-1 text-red-500`}
-          fill="currentColor"
-        />{' '}
+        <MobileHealth health={health} />
+      </div>
+      <div className="sm:hidden md:flex">
+        <DesktopHealth health={health} />
       </div>
     </header>
   );
