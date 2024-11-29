@@ -11,7 +11,6 @@ export const useHandleLetterClick = () => {
       .includes(letter.toUpperCase());
     console.log(isInCountryName);
     if (!isInCountryName) {
-      console.log('wrong');
       decreaseHealth();
     }
     addGuessedLetter(letter);

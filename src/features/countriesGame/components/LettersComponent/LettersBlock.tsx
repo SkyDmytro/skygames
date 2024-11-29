@@ -9,7 +9,7 @@ export const LettersBlock = () => {
   const { handleLetterClick } = useHandleLetterClick();
   const { guessedLetters } = useCountryStore();
   return (
-    <div className="inline-flex justify-center  gap-2 flex-wrap ">
+    <div className="inline-flex justify-center gap-2 flex-wrap ">
       {LETTERS.map((letter: string, index: number) => (
         <Letter
           letter={letter}
