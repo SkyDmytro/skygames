@@ -22,7 +22,7 @@ export const LetterLayout = ({
         classNames,
         isDisabled && 'bg-gray-800 shadow-lg shadow-gray-700/50',
       )}
-      onClick={onClick}
+      onClick={isDisabled ? undefined : onClick}
     >
       {children}
     </div>
