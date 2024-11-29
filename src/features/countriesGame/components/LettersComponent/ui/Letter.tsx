@@ -9,12 +9,15 @@ export const Letter = ({
 }: {
   letter: string;
   isDisabled?: boolean;
-  onClick: () => void;
+  onClick: (letter: string) => void;
 }) => {
+  const handleLetterClick = () => {
+    onClick(letter);
+  };
   return (
     <LetterLayout
       isDisabled={isDisabled}
-      onClick={onClick}
+      onClick={handleLetterClick}
       classNames="bg-blue-600 shadow-lg shadow-blue-700/50"
     >
       {letter.toUpperCase()}
