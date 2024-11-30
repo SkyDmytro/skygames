@@ -1,15 +1,15 @@
-import { CountryPageHeader } from '@/features/countriesGame/components/CountryPageHeader/CountryPageHeader';
-import { GuessedLettersComponent } from '@/features/countriesGame/components/GuessedLettersComponent/GuessedLettersComponent';
-import { LettersBlock } from '@/features/countriesGame/components/LettersComponent/LettersBlock';
+'use server';
 
-const CountriesGame = () => {
-  return (
-    <section className="flex flex-col items-center justify-between w-screen h-screen">
-      <CountryPageHeader />
-      <GuessedLettersComponent />
-      <LettersBlock />
-    </section>
-  );
+import { getContryByIdRequest } from '@/features/countriesGame/api/getCountryByIdRequest';
+import { CountryGuesserPage } from '@/features/countriesGame/components/CountryGuesserPage';
+import { CountryType } from '@/features/countriesGame/types/countryType';
+import { AMOUNT_OF_COUNTRIES } from '@/features/countriesGame/utils/constants';
+
+export const CountryGuesser = async () => {
+  const countryId = Math.floor(Math.random() * AMOUNT_OF_COUNTRIES);
+  const country: CountryType = await getContryByIdRequest(countryId);
+
+  return <CountryGuesserPage countryName={country.countryName} />;
 };
 
-export default CountriesGame;
+export default CountryGuesser;

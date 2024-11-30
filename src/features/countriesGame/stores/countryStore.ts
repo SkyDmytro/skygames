@@ -7,12 +7,13 @@ export type CountryState = {
 
 export type CountryActions = {
   addGuessedLetter: (letter: string) => void;
+  setCountry: (countryName: string) => void;
 };
 
 export type CountryStore = CountryState & CountryActions;
 
 export const defaultInitState: CountryState = {
-  countryName: 'Netherlands',
+  countryName: '',
   guessedLetters: [],
 };
 

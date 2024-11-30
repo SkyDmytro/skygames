@@ -21,7 +21,7 @@ export const GuessedLettersComponent = () => {
                 <LetterController
                   key={letterIdx}
                   letter={letter}
-                  isGuessed={guessedLetters.includes(letter.toLowerCase())}
+                  isGuessed={guessedLetters.includes(letter.toUpperCase())}
                 />
               );
             })}

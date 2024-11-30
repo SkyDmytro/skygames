@@ -1,4 +1,4 @@
-import getCountriesFromDB from '@/features/countriesGame/api/getCountries';
+import getCountriesFromDB from '@/features/countriesGame/api/getCountriesFromDB';
 
 async function getAllCountries() {
   const countries = await getCountriesFromDB();

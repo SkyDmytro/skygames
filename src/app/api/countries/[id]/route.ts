@@ -1,4 +1,4 @@
-import getCountryById from '@/features/countriesGame/api/getCountryById';
+import getCountryById from '@/features/countriesGame/api/getCountryByIdFromDB';
 
 import { NextRequest } from 'next/server';
 
@@ -14,5 +14,6 @@ export const GET = async (req: NextRequest) => {
   if (!country) {
     return new Response('Country not found', { status: 404 });
   }
+  console.log(country);
   return new Response(JSON.stringify(country));
 };

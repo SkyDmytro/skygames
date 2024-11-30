@@ -15,7 +15,7 @@ export const LettersBlock = () => {
           letter={letter}
           key={index}
           onClick={handleLetterClick}
-          isDisabled={guessedLetters.includes(letter.toLowerCase())}
+          isDisabled={guessedLetters.includes(letter.toUpperCase())}
         />
       ))}
     </div>
