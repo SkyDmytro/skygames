@@ -26,3 +26,5 @@ export const LETTERS = [
   'y',
   'z',
 ];
+
+export const AMOUNT_OF_COUNTRIES = 192;

@@ -9,11 +9,10 @@ export const useHandleLetterClick = () => {
     const isInCountryName = countryName
       .toUpperCase()
       .includes(letter.toUpperCase());
-    console.log(isInCountryName);
     if (!isInCountryName) {
       decreaseHealth();
     }
-    addGuessedLetter(letter);
+    addGuessedLetter(letter.toUpperCase());
   };
   return { handleLetterClick };
 };
