@@ -1,3 +1,12 @@
+import { PopUpComponent } from './PopUpComponent';
+
 export const LosePopUp = () => {
-  return <div>You lost {`:(`}</div>;
+  return (
+    <PopUpComponent
+      handleRestart={() => {}}
+      time={60}
+      isWin={false}
+      health={0}
+    />
+  );
 };
