@@ -1,10 +1,16 @@
 import { PopUpComponent } from './PopUpComponent';
 
-export const VictoryPopup = ({ health }: { health: number }) => {
+export const VictoryPopup = ({
+  health,
+  time,
+}: {
+  health: number;
+  time: number;
+}) => {
   return (
     <PopUpComponent
       handleRestart={() => {}}
-      time={60}
+      time={time}
       isWin={true}
       health={health}
     />

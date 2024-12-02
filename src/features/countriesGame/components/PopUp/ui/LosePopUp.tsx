@@ -1,10 +1,10 @@
 import { PopUpComponent } from './PopUpComponent';
 
-export const LosePopUp = () => {
+export const LosePopUp = ({ time }: { time: number }) => {
   return (
     <PopUpComponent
       handleRestart={() => {}}
-      time={60}
+      time={time}
       isWin={false}
       health={0}
     />

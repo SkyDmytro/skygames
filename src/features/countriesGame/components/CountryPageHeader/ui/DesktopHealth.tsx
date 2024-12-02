@@ -2,7 +2,7 @@ import { Heart } from 'lucide-react';
 
 export const DesktopHealth = ({ health }: { health: number }) => {
   return (
-    <>
+    <div className="flex">
       {[...Array(health)].map((_, i) => (
         <Heart
           key={i}
@@ -10,6 +10,6 @@ export const DesktopHealth = ({ health }: { health: number }) => {
           fill={i < health ? 'currentColor' : 'none'}
         />
       ))}
-    </>
+    </div>
   );
 };
