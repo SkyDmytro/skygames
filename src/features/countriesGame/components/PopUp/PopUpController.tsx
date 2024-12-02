@@ -1,19 +1,21 @@
 'use client';
 
-import { useCountryStore } from '@/features/countriesGame/stores/countryStore';
-import { useScoreStore } from '@/features/countriesGame/stores/scoreStore';
-import { getIsCountryGuessed } from '@/features/countriesGame/utils/functions';
 import { cn } from '@/lib/cn';
 
 import { LosePopUp } from './ui/LosePopUp';
 import { VictoryPopup } from './ui/VictoryPopup';
 
-export const PopUpController = () => {
-  const { health } = useScoreStore();
-  const { countryName, guessedLetters } = useCountryStore();
-  const isGuessed = getIsCountryGuessed(guessedLetters, countryName);
-  const isLost = health === 0;
-
+export const PopUpController = ({
+  isGuessed,
+  isLost,
+  health,
+  time,
+}: {
+  isGuessed: boolean;
+  isLost: boolean;
+  health: number;
+  time: number;
+}) => {
   return (
     <div
       className={cn(
@@ -24,8 +26,8 @@ export const PopUpController = () => {
       )}
     >
       <div className="z-50 w-1/2 h-1/2">
-        {isGuessed && <VictoryPopup health={health} />}
-        {isLost && <LosePopUp />}
+        {isGuessed && <VictoryPopup health={health} time={time} />}
+        {isLost && <LosePopUp time={time} />}
       </div>
     </div>
   );
