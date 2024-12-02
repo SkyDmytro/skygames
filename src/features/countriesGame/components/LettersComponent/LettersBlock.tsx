@@ -15,7 +15,6 @@ export const LettersBlock = () => {
   useEffect(() => {
     if (guessedLetters.length === 1) {
       startTimer();
-      console.log('start timer');
     }
   }, [guessedLetters]);
 
