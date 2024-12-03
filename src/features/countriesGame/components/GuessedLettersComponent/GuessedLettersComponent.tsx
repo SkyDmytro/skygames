@@ -14,7 +14,7 @@ export const GuessedLettersComponent = () => {
         return (
           <div
             key={idx}
-            className="flex justify-center items-center gap-4 sm:gap-2 max-w-[90vw]"
+            className="flex max-w-[90vw] items-center justify-center gap-4 sm:gap-2"
           >
             {countryString.split('').map((letter, letterIdx) => {
               return (

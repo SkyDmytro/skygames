@@ -9,7 +9,7 @@ export const Timer = () => {
 
   return (
     <div className="flex items-center text-2xl">
-      <TimerIcon className="w-6 h-6" />: {time}
+      <TimerIcon className="h-6 w-6" />: {time}
     </div>
   );
 };

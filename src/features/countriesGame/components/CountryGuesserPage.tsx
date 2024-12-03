@@ -1,12 +1,13 @@
 'use client';
 
+import { useResults } from '@/features/countriesGame/hooks/useResults';
+import { useCountryStore } from '@/features/countriesGame/stores/countryStore';
+import { useScoreStore } from '@/features/countriesGame/stores/scoreStore';
+import { useTimerStore } from '@/features/countriesGame/stores/timerStore';
+import { CountryType } from '@/features/countriesGame/types/countryType';
+
 import { useEffect } from 'react';
 
-import { useResults } from '../hooks/useResults';
-import { useCountryStore } from '../stores/countryStore';
-import { useScoreStore } from '../stores/scoreStore';
-import { useTimerStore } from '../stores/timerStore';
-import { CountryType } from '../types/countryType';
 import { CountryPageHeader } from './CountryPageHeader/CountryPageHeader';
 import { GuessedLettersComponent } from './GuessedLettersComponent/GuessedLettersComponent';
 import { LettersBlock } from './LettersComponent/LettersBlock';
@@ -32,7 +33,7 @@ export const CountryGuesserPage = ({
   }, [countryName]);
 
   return (
-    <section className="flex flex-col items-center justify-between w-screen h-screen">
+    <section className="flex h-screen w-screen flex-col items-center justify-between">
       <PopUpController
         isGuessed={isGuessed}
         isLost={isLost}

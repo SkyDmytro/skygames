@@ -19,13 +19,13 @@ export const PopUpController = ({
   return (
     <div
       className={cn(
-        'absolute z-40 w-full h-full flex justify-center items-center bg-black/70 text-blue-500',
+        'absolute z-40 flex h-full w-full items-center justify-center bg-black/70 text-blue-500',
         !isGuessed && !isLost && 'hidden',
         isLost && 'block',
         isGuessed && 'block',
       )}
     >
-      <div className="z-50 w-1/2 h-1/2">
+      <div className="z-50 h-1/2 w-1/2">
         {isGuessed && <VictoryPopup health={health} time={time} />}
         {isLost && <LosePopUp time={time} />}
       </div>
