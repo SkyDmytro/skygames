@@ -5,6 +5,7 @@ import { useScoreStore } from '@/features/countriesGame/stores/scoreStore';
 import { Globe } from 'lucide-react';
 
 import { DesktopHealth } from './ui/DesktopHealth';
+import { HelpPopupIcon } from './ui/HelpPopup';
 import { Timer } from './ui/Timer';
 
 export const CountryPageHeader = () => {
@@ -17,7 +18,8 @@ export const CountryPageHeader = () => {
           Guess the Country
         </span>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-5">
+        <HelpPopupIcon onClick={() => {}} />
         <Timer />
         <DesktopHealth health={health} />
       </div>
