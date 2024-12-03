@@ -32,7 +32,7 @@ export const CountryGuesserPage = ({
   }, [countryName]);
 
   return (
-    <section className="flex flex-col items-center justify-between w-screen h-screen">
+    <section className="flex h-screen w-screen flex-col items-center justify-between">
       <PopUpController
         isGuessed={isGuessed}
         isLost={isLost}
