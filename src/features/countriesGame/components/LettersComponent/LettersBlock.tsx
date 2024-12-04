@@ -19,7 +19,7 @@ export const LettersBlock = () => {
   }, [guessedLetters]);
 
   return (
-    <div className="inline-flex justify-center gap-2 flex-wrap ">
+    <div className="inline-flex flex-wrap justify-center gap-2">
       {LETTERS.map((letter: string, index: number) => (
         <Letter
           letter={letter}
