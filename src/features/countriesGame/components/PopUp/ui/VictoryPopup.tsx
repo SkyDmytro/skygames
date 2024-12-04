@@ -7,12 +7,5 @@ export const VictoryPopup = ({
   health: number;
   time: number;
 }) => {
-  return (
-    <PopUpComponent
-      handleRestart={() => {}}
-      time={time}
-      isWin={true}
-      health={health}
-    />
-  );
+  return <PopUpComponent time={time} isWin={true} health={health} />;
 };

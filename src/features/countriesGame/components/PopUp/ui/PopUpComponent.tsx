@@ -7,14 +7,15 @@ interface PopUpComponentProps {
   time: number;
   isWin: boolean;
   health: number;
-  handleRestart: () => void;
 }
 export const PopUpComponent = ({
   time,
   isWin,
   health,
-  handleRestart,
 }: PopUpComponentProps): JSX.Element => {
+  const handleRestartGame = () => {
+    window.location.reload();
+  };
   return (
     <AnimatePresence>
       <motion.div
@@ -61,7 +62,7 @@ export const PopUpComponent = ({
               Time: {time}
             </p>
           </div>
-          <button onClick={handleRestart} className="mt-4">
+          <button onClick={handleRestartGame} className="mt-4">
             Play Again
           </button>
         </motion.div>
