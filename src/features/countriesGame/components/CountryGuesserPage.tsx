@@ -8,6 +8,7 @@ import { CountryType } from '@/features/countriesGame/types/countryType';
 
 import { useEffect } from 'react';
 
+import { usePopups } from '../hooks/usePopups';
 import { CountryPageHeader } from './CountryPageHeader/CountryPageHeader';
 import { GuessedLettersComponent } from './GuessedLettersComponent/GuessedLettersComponent';
 import { LettersBlock } from './LettersComponent/LettersBlock';
@@ -20,6 +21,7 @@ export const CountryGuesserPage = ({
   const { isGuessed, isLost } = useResults();
   const { setCountry } = useCountryStore();
   const { stopTimer, time } = useTimerStore();
+  const { handleOpenPopup } = usePopups();
 
   useEffect(() => {
     if (isGuessed || isLost) {
@@ -40,7 +42,7 @@ export const CountryGuesserPage = ({
         health={health}
         time={time}
       />
-      <CountryPageHeader />
+      <CountryPageHeader togglePopup={handleOpenPopup('help')} />
       <GuessedLettersComponent />
       <LettersBlock />
     </section>
