@@ -5,10 +5,14 @@ import { useScoreStore } from '@/features/countriesGame/stores/scoreStore';
 import { Globe } from 'lucide-react';
 
 import { DesktopHealth } from './ui/DesktopHealth';
-import { HelpPopupIcon } from './ui/HelpPopup';
+import { HelpPopupIcon } from './ui/HelpPopupController';
 import { Timer } from './ui/Timer';
 
-export const CountryPageHeader = () => {
+export const CountryPageHeader = ({
+  togglePopup,
+}: {
+  togglePopup: () => void;
+}) => {
   const { health } = useScoreStore();
   return (
     <header className="mb-8 flex w-full items-center justify-between rounded-xl bg-transparent p-4 backdrop-blur-sm">
@@ -19,7 +23,7 @@ export const CountryPageHeader = () => {
         </span>
       </div>
       <div className="flex items-center gap-5">
-        <HelpPopupIcon onClick={() => {}} />
+        <HelpPopupIcon onClick={togglePopup} />
         <Timer />
         <DesktopHealth health={health} />
       </div>
