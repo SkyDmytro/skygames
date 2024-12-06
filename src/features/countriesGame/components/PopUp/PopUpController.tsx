@@ -4,7 +4,7 @@ import { cn } from '@/lib/cn';
 
 import { useEffect } from 'react';
 
-import { usePopups } from '../../hooks/usePopups';
+import { usePopUpStore } from '../../stores/usePopUpStore';
 import { HelpPopup } from '../CountryPageHeader/ui/HelpPopup';
 import { LosePopUp } from './ui/LosePopUp';
 import { VictoryPopup } from './ui/VictoryPopup';
@@ -20,21 +20,15 @@ export const PopUpController = ({
   health: number;
   time: number;
 }) => {
-  const {
-    handleClosePopup,
-    handleOpenPopup,
-    isOpened,
-    isHelpPopupOpen,
-    isLosePopupOpen,
-    isVictoryPopupOpen,
-  } = usePopups();
+  const { isOpened, currentPopup, closePopup, openPopupByType } =
+    usePopUpStore();
 
   useEffect(() => {
     if (isGuessed) {
-      handleOpenPopup('victory');
+      openPopupByType('victory');
     }
     if (isLost) {
-      handleOpenPopup('lose');
+      openPopupByType('lose');
     }
   }, [isGuessed, isLost]);
 
@@ -45,10 +39,15 @@ export const PopUpController = ({
         isOpened ? 'block' : 'hidden',
       )}
     >
-      <div className="z-50 h-1/2 w-1/2">
-        {isVictoryPopupOpen && <VictoryPopup health={health} time={time} />}
-        {isLosePopupOpen && <LosePopUp time={time} />}
-        {isHelpPopupOpen && <HelpPopup />}
+      <div className="relative z-50 h-1/2 w-1/2 rounded-sm border-2 border-blue-500">
+        <div className="absolute right-2 top-2" onClick={closePopup}>
+          X
+        </div>
+        {currentPopup === 'victory' && (
+          <VictoryPopup health={health} time={time} />
+        )}
+        {currentPopup === 'lose' && <LosePopUp time={time} />}
+        {currentPopup === 'help' && <HelpPopup />}
       </div>
     </div>
   );
