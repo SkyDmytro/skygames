@@ -1,5 +1,5 @@
 import { getWordById } from '@/features/wordle/api/getWordById';
-import { WordsComponents } from '@/features/wordle/components/WordsComponents';
+import { WordsComponents } from '@/features/wordle/components/WordsComponent/WordsComponents';
 import { WordType } from '@/features/wordle/types/wordType';
 import { AMOUNT_OF_WORDS } from '@/features/wordle/utils/constants';
 
